@@ -1,0 +1,1311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mnotfo Balonde Dlamini - IT Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sky-blue: #87CEEB;
+            --dark-blue: #4682B4;
+            --red: #B22222;
+            --dark-red: #8B0000;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .logo span {
+            color: var(--red);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--red);
+        }
+        
+        nav ul li a.active {
+            color: var(--red);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--red);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section with Slideshow */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .slide.active {
+            opacity: 0.8;
+        }
+        
+        /* Sample background images - replace with your actual photos */
+        .slide1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+        }
+        
+        .slide2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        }
+        
+        .slide3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 3rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+        
+        .degree-badge {
+            display: inline-block;
+            background-color: var(--sky-blue);
+            color: var(--dark-gray);
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+        }
+        
+        .job-titles {
+            font-size: 2rem;
+            height: 60px;
+            overflow: hidden;
+            margin: 2.5rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .job-title-wrapper {
+            height: 100%;
+            animation: moveJobTitles 15s ease-in-out infinite;
+        }
+        
+        @keyframes moveJobTitles {
+            0%, 20% { transform: translateY(0); }
+            25%, 45% { transform: translateY(-60px); }
+            50%, 70% { transform: translateY(-120px); }
+            75%, 95% { transform: translateY(-180px); }
+            100% { transform: translateY(-240px); }
+        }
+        
+        .job-title {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--sky-blue);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-intro {
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .contact-floating {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .contact-icon {
+            margin-right: 0.8rem;
+            color: var(--sky-blue);
+        }
+        
+        /* Main Content Sections */
+        .main-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--dark-blue);
+            font-size: 2.8rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background-color: var(--red);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Documents Section */
+        .documents-section {
+            background-color: var(--light-gray);
+            border-radius: 15px;
+            padding: 4rem 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: 2rem;
+        }
+        
+        .documents-title {
+            color: var(--dark-blue);
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .document-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-top: 5px solid var(--sky-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-top-color: var(--red);
+        }
+        
+        .document-icon {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .document-card h3 {
+            margin-bottom: 1.2rem;
+            color: var(--dark-gray);
+            font-size: 1.4rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--dark-red);
+            transform: scale(1.05);
+        }
+        
+        /* Projects Section with Carousels */
+        .projects-section {
+            background-color: var(--white);
+        }
+        
+        .company-section {
+            margin-bottom: 6rem;
+        }
+        
+        .company-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid var(--sky-blue);
+        }
+        
+        .company-logo {
+            width: 70px;
+            height: 70px;
+            background-color: var(--sky-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2rem;
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .company-title {
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+        }
+        
+        .company-period {
+            color: var(--red);
+            font-weight: 700;
+            margin-left: auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Projects Carousel */
+        .projects-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-container {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 550px;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            background-color: var(--light-gray);
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .project-image {
+            flex: 0 0 50%;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            flex: 0 0 50%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .project-title {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .project-category {
+            display: inline-block;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .tech-tag {
+            background-color: var(--sky-blue);
+            color: var(--dark-gray);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1.5rem;
+        }
+        
+        .carousel-btn {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-btn:hover {
+            background-color: var(--red);
+            transform: scale(1.1);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .dot.active {
+            background-color: var(--red);
+            transform: scale(1.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 0.8rem;
+            color: var(--sky-blue);
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .carousel-slide {
+                flex-direction: column;
+            }
+            
+            .project-image, .project-content {
+                flex: 0 0 100%;
+            }
+            
+            .project-image {
+                height: 300px;
+            }
+            
+            .project-content {
+                padding: 2rem;
+                height: auto;
+            }
+            
+            .carousel-container {
+                height: auto;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .job-titles {
+                font-size: 1.7rem;
+                height: 55px;
+            }
+            
+            @keyframes moveJobTitles {
+                0%, 20% { transform: translateY(0); }
+                25%, 45% { transform: translateY(-55px); }
+                50%, 70% { transform: translateY(-110px); }
+                75%, 95% { transform: translateY(-165px); }
+                100% { transform: translateY(-220px); }
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .job-titles {
+                font-size: 1.5rem;
+                height: 50px;
+            }
+            
+            @keyframes moveJobTitles {
+                0%, 20% { transform: translateY(0); }
+                25%, 45% { transform: translateY(-50px); }
+                50%, 70% { transform: translateY(-100px); }
+                75%, 95% { transform: translateY(-150px); }
+                100% { transform: translateY(-200px); }
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .company-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .company-logo {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .company-period {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .company-title {
+                font-size: 1.8rem;
+            }
+            
+            .project-title {
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                bottom: 30px;
+                right: 30px;
+            }
+            
+            .footer-contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .job-titles {
+                font-size: 1.3rem;
+                height: 45px;
+            }
+            
+            @keyframes moveJobTitles {
+                0%, 20% { transform: translateY(0); }
+                25%, 45% { transform: translateY(-45px); }
+                50%, 70% { transform: translateY(-90px); }
+                75%, 95% { transform: translateY(-135px); }
+                100% { transform: translateY(-180px); }
+            }
+            
+            .hero-content {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .documents-section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/26878613688" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo" id="homeLogo">
+                Mnotfo<span>Dlamini</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#documents" class="nav-link">Documents</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Home Section with Slideshow -->
+        <section id="home" class="hero">
+            <!-- Image Slideshow -->
+            <div class="slideshow-container">
+                <div class="slide slide1 active"></div>
+                <div class="slide slide2"></div>
+                <div class="slide slide3"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Mnotfo Balonde Dlamini</h1>
+                    <div class="degree-badge">
+                        <i class="fas fa-graduation-cap"></i> Associate Degree in Information Technology
+                    </div>
+                    
+                    <div class="job-titles">
+                        <div class="job-title-wrapper">
+                            <div class="job-title">Network Technician</div>
+                            <div class="job-title">Computer Technician</div>
+                            <div class="job-title">System Analyst</div>
+                            <div class="job-title">Application Developer</div>
+                            <div class="job-title">Web Designer</div>
+                        </div>
+                    </div>
+                    
+                    <p class="hero-intro">
+                        IT professional with hands-on experience in troubleshooting, systems administration, and network security. 
+                        Currently serving as an IT Technician at SlickTech Investment, with expertise in hardware/software 
+                        support and system maintenance.
+                    </p>
+                    
+                    <div class="contact-floating">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt contact-icon"></i>
+                            <span>+268 7861 3688</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-mobile-alt contact-icon"></i>
+                            <span>+268 7949 7018</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span>dlaminimnotfo2@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="main-section">
+            <div class="container">
+                <h2 class="section-title">Professional Documents</h2>
+                
+                <div class="documents-section">
+                    <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.2rem; color: var(--dark-gray);">
+                        Download my credentials for your records
+                    </p>
+                    
+                    <div class="documents-grid">
+                        <div class="document-card">
+                            <div>
+                                <div class="document-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Resume</h3>
+                                <p style="margin-bottom: 1.5rem;">Detailed professional experience and skills</p>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1R4PkZ3dpJMk9QD1BUNc--niuta2dK7JX/view?usp=drivesdk" class="download-btn" download>Download PDF</a>
+                        </div>
+                        
+                        <div class="document-card">
+                            <div>
+                                <div class="document-icon">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </div>
+                                <h3>Cover Letter</h3>
+                                <p style="margin-bottom: 1.5rem;">Application for IT Officer position</p>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1yUGr9U069w7-MMWSEmJJcnFEnf8-SbJj/view?usp=drivesdk" class="download-btn" download>Download PDF</a>
+                        </div>
+                        
+                        <div class="document-card">
+                            <div>
+                                <div class="document-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Degree Certificate</h3>
+                                <p style="margin-bottom: 1.5rem;">Associate Degree in Information Technology</p>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1fMpnVbzHG9ptVKdIWQEvFfE7jlzKlYf0/view?usp=drivesdk" class="download-btn" download>Download PDF</a>
+                        </div>
+                        
+                        <div class="document-card">
+                            <div>
+                                <div class="document-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Network Security Certificate</h3>
+                                <p style="margin-bottom: 1.5rem;">Great Learning Academy Certification</p>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1AUrfEk7IlzphwQdfDH6szpA22dNyxD9w/view?usp=drivesdk" class="download-btn" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with Carousels -->
+        <section id="projects" class="main-section projects-section">
+            <div class="container">
+                <h2 class="section-title">Professional Projects</h2>
+                
+                <!-- Think IT Projects Carousel -->
+                <div class="company-section">
+                    <div class="company-header">
+                        <div class="company-logo">TI</div>
+                        <h2 class="company-title">Think IT - Internship</h2>
+                        <div class="company-period">July 2023 - October 2023</div>
+                    </div>
+                    
+                    <div class="projects-carousel" id="thinkit-carousel">
+                        <div class="carousel-container">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide">
+                                <div class="project-image">
+                                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Network Infrastructure Setup">
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Network Infrastructure Setup</h3>
+                                    <span class="project-category">Network Administration</span>
+                                    <p class="project-description">
+                                        Designed and implemented a secure LAN infrastructure for a small office, including router configuration, 
+                                        switch setup, and Wi-Fi network deployment. Configured firewall rules and established secure remote access 
+                                        protocols for staff working from home.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Cisco Routers</span>
+                                        <span class="tech-tag">LAN/WAN Setup</span>
+                                        <span class="tech-tag">Network Security</span>
+                                        <span class="tech-tag">Firewall Configuration</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide">
+                                <div class="project-image">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Software Deployment Automation">
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Software Deployment Automation</h3>
+                                    <span class="project-category">System Administration</span>
+                                    <p class="project-description">
+                                        Created automated PowerShell scripts for deploying standard software packages across 50+ workstations. 
+                                        Reduced manual setup time by 65% and ensured software consistency across all company devices. 
+                                        Implemented version control and rollback procedures for software updates.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">PowerShell Scripting</span>
+                                        <span class="tech-tag">Software Deployment</span>
+                                        <span class="tech-tag">Automation</span>
+                                        <span class="tech-tag">Windows OS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev-btn" data-carousel="thinkit">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="carousel-dots" id="thinkit-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                            </div>
+                            <button class="carousel-btn next-btn" data-carousel="thinkit">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SlickTech Investment Projects Carousel -->
+                <div class="company-section">
+                    <div class="company-header">
+                        <div class="company-logo">SI</div>
+                        <h2 class="company-title">SlickTech Investment</h2>
+                        <div class="company-period">November 2023 - Present</div>
+                    </div>
+                    
+                    <div class="projects-carousel" id="slicktech-carousel">
+                        <div class="carousel-container">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide">
+                                <div class="project-image">
+                                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cybersecurity Enhancement Initiative">
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Cybersecurity Enhancement Initiative</h3>
+                                    <span class="project-category">Network Security</span>
+                                    <p class="project-description">
+                                        Led a company-wide security upgrade project implementing advanced firewall rules, intrusion detection systems, 
+                                        and multi-factor authentication for all critical systems. Conducted vulnerability assessments and security 
+                                        awareness training for staff, reducing security incidents by 75% within six months.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Firewall Configuration</span>
+                                        <span class="tech-tag">MFA Implementation</span>
+                                        <span class="tech-tag">Security Auditing</span>
+                                        <span class="tech-tag">Intrusion Detection</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide">
+                                <div class="project-image">
+                                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Automated Backup & Disaster Recovery System">
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Automated Backup & Disaster Recovery System</h3>
+                                    <span class="project-category">System Administration</span>
+                                    <p class="project-description">
+                                        Designed and implemented an automated backup system with off-site replication and regular testing procedures. 
+                                        Created disaster recovery plans and conducted drills to ensure business continuity. Achieved 99.9% data 
+                                        availability and reduced recovery time from potential disasters by 80%.
+                                    </p>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Backup Solutions</span>
+                                        <span class="tech-tag">Disaster Recovery</span>
+                                        <span class="tech-tag">System Automation</span>
+                                        <span class="tech-tag">Business Continuity</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev-btn" data-carousel="slicktech">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="carousel-dots" id="slicktech-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                            </div>
+                            <button class="carousel-btn next-btn" data-carousel="slicktech">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone-alt footer-contact-icon"></i>
+                    <span>+268 7861 3688</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-mobile-alt footer-contact-icon"></i>
+                    <span>+268 7949 7018</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope footer-contact-icon"></i>
+                    <span>dlaminimnotfo2@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                    <span>Mbabane, Mangwaneni, Eswatini</span>
+                </div>
+            </div>
+            
+            <p>&copy; 2025 Mnotfo Balonde Dlamini. All rights reserved.</p>
+            <p style="margin-top: 1rem; opacity: 0.9; font-size: 1.1rem;">
+                IT Professional | Associate Degree in Information Technology
+            </p>
+            
+            <div style="margin-top: 2rem;">
+                <a href="https://wa.me/26878613688" style="color: #25d366; margin: 0 15px; font-size: 1.8rem;" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:dlaminimnotfo2@gmail.com" style="color: var(--white); margin: 0 15px; font-size: 1.8rem;">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+26878613688" style="color: var(--white); margin: 0 15px; font-size: 1.8rem;">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Ready function
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mainNav.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get the target section ID
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Update active link
+                        navLinks.forEach(item => item.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Scroll to the target section
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            mainNav.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Logo click to scroll to top
+            const homeLogo = document.getElementById('homeLogo');
+            
+            homeLogo.addEventListener('click', (e) => {
+                e.preventDefault();
+                navLinks.forEach(item => item.classList.remove('active'));
+                document.querySelector('a[href="#home"]').classList.add('active');
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Update active nav link on scroll
+            const sections = document.querySelectorAll('section[id]');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Hero Image Slideshow
+            const heroSlides = document.querySelectorAll('.slide');
+            let currentHeroSlide = 0;
+            
+            function showHeroSlide(index) {
+                heroSlides.forEach(slide => slide.classList.remove('active'));
+                heroSlides[index].classList.add('active');
+            }
+            
+            function nextHeroSlide() {
+                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                showHeroSlide(currentHeroSlide);
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextHeroSlide, 5000);
+            
+            // Animate job titles on home page load
+            const jobTitleWrapper = document.querySelector('.job-title-wrapper');
+            if (jobTitleWrapper) {
+                // Reset animation to ensure it runs smoothly
+                jobTitleWrapper.style.animation = 'none';
+                setTimeout(() => {
+                    jobTitleWrapper.style.animation = 'moveJobTitles 15s ease-in-out infinite';
+                }, 10);
+            }
+            
+            // Initialize with home page active
+            window.scrollTo(0, 0);
+            
+            // Projects Carousel Functionality
+            function initCarousel(carouselId, dotsId) {
+                const carousel = document.getElementById(carouselId);
+                const container = carousel.querySelector('.carousel-container');
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevBtn = carousel.querySelector('.prev-btn');
+                const nextBtn = carousel.querySelector('.next-btn');
+                const dots = document.getElementById(dotsId).querySelectorAll('.dot');
+                
+                let currentSlide = 0;
+                const totalSlides = slides.length;
+                let autoSlideInterval;
+                
+                // Function to update carousel position
+                function updateCarousel() {
+                    const translateX = -currentSlide * 100;
+                    container.style.transform = `translateX(${translateX}%)`;
+                    
+                    // Update dots
+                    dots.forEach((dot, index) => {
+                        dot.classList.remove('active');
+                        if (index === currentSlide) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+                
+                // Function to go to specific slide
+                function goToSlide(index) {
+                    currentSlide = index;
+                    if (currentSlide < 0) currentSlide = totalSlides - 1;
+                    if (currentSlide >= totalSlides) currentSlide = 0;
+                    updateCarousel();
+                }
+                
+                // Function to go to next slide
+                function nextSlide() {
+                    goToSlide(currentSlide + 1);
+                }
+                
+                // Function to go to previous slide
+                function prevSlide() {
+                    goToSlide(currentSlide - 1);
+                }
+                
+                // Start auto-sliding
+                function startAutoSlide() {
+                    autoSlideInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+                }
+                
+                // Stop auto-sliding
+                function stopAutoSlide() {
+                    clearInterval(autoSlideInterval);
+                }
+                
+                // Event listeners for buttons
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    stopAutoSlide();
+                    setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    stopAutoSlide();
+                    setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                });
+                
+                // Event listeners for dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        goToSlide(index);
+                        stopAutoSlide();
+                        setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                    });
+                });
+                
+                // Pause auto-slide on hover
+                carousel.addEventListener('mouseenter', stopAutoSlide);
+                carousel.addEventListener('mouseleave', startAutoSlide);
+                
+                // Initialize
+                updateCarousel();
+                startAutoSlide();
+            }
+            
+            // Initialize both carousels
+            initCarousel('thinkit-carousel', 'thinkit-dots');
+            initCarousel('slicktech-carousel', 'slicktech-dots');
+        });
+    </script>
+</body>
+</html>
+
